@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-visual-designer",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Visual Designer - Golden ratio typography hierarchy scaling, WCAG 2.1 color contrast ratio auditing, and triadic color harmony generation with zero dependencies.",
+  "tools": [
+    "calculate_golden_ratio_typography_scale",
+    "evaluate_wcag_color_contrast_ratio",
+    "generate_triadic_color_palette"
+  ]
+}
