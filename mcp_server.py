@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, Optional
 from client import OpenClawGenParkVisualDesigner
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-visual-designer")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-visual-designer")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-visual-designer')
 
 designer = OpenClawGenParkVisualDesigner()
 
@@ -58,8 +49,7 @@ def generate_triadic_color_palette(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Visual Designer:")
-    print(evaluate_wcag_color_contrast_ratio("#000000", "#ffffff"))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
